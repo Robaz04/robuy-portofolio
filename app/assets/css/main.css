@@ -1,18 +1,232 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-@theme static {
-  --font-sans: 'Public Sans', sans-serif;
+@theme {
+  /* Colors */
+  --color-primary: #d0bcff;
+  --color-secondary: #ddb8ff;
+  --color-tertiary: #a4c9ff;
+  --color-background: #161021;
+  --color-surface: #161021;
+  --color-surface-container: #231c2e;
+  --color-surface-container-low: #1f182a;
+  --color-surface-container-high: #2e2739;
+  --color-surface-bright: #3d3649;
+  --color-on-surface: #eadef6;
+  --color-on-surface-variant: #cbc3d7;
+  --color-on-primary: #3c0091;
+  --color-on-secondary: #490081;
+  --color-inverse-primary: #6d3bd7;
+  --color-outline-variant: #494454;
+  --color-outline: #958ea0;
 
-  --color-green-50: #EFFDF5;
-  --color-green-100: #D9FBE8;
-  --color-green-200: #B3F5D1;
-  --color-green-300: #75EDAE;
-  --color-green-400: #00DC82;
-  --color-green-500: #00C16A;
-  --color-green-600: #00A155;
-  --color-green-700: #007F45;
-  --color-green-800: #016538;
-  --color-green-900: #0A5331;
-  --color-green-950: #052E16;
+  /* Font families */
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Font sizes */
+  --text-display-lg: 64px;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--letter-spacing: -0.04em;
+
+  --text-display-lg-mobile: 40px;
+  --text-display-lg-mobile--line-height: 1.2;
+  --text-display-lg-mobile--letter-spacing: -0.02em;
+
+  --text-headline-md: 32px;
+  --text-headline-md--line-height: 1.3;
+  --text-headline-md--letter-spacing: -0.02em;
+
+  --text-headline-sm: 24px;
+  --text-headline-sm--line-height: 1.4;
+  --text-headline-sm--letter-spacing: -0.01em;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.6;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.6;
+
+  --text-label-md: 14px;
+  --text-label-md--line-height: 1;
+  --text-label-md--letter-spacing: 0.05em;
+
+  --text-code-sm: 13px;
+  --text-code-sm--line-height: 1.5;
+
+  /* Spacing */
+  --spacing-stack-lg: 80px;
+  --spacing-stack-md: 32px;
+  --spacing-stack-sm: 12px;
+  --spacing-gutter: 24px;
+  --spacing-container-max: 1200px;
+  --spacing-margin-mobile: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--text);
+  background: var(--background);
+  position: relative;
+}
+
+.scroll-section-hero {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+  animation: heroEntrance 0.8s ease 0.2s forwards;
+}
+
+@keyframes heroEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.surface_glass {
+  background-color: rgba(22, 16, 33, 0.3);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(73, 68, 84, 0.2);
+}
+
+.border_subtle {
+  border: 1px solid rgba(73, 68, 84, 0.2);
+}
+
+.glow-orb-primary {
+  background: radial-gradient(circle, rgba(208, 188, 255, 0.15) 0%, rgba(208, 188, 255, 0) 70%);
+}
+
+.glow-orb-secondary {
+  background: radial-gradient(circle, rgba(221, 184, 255, 0.1) 0%, rgba(221, 184, 255, 0) 70%);
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #d0bcff, #ddb8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tech-chip {
+  background-color: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: #d0bcff;
+}
+
+.glass-card {
+  background-color: rgba(139, 92, 246, 0.06);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-4px);
+}
+
+.animate-bounce-slow {
+  animation: bounce 3s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.typewriter-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #d0bcff;
+  animation: typing 4s steps(40, end) infinite, blink .75s step-end infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0
+  }
+
+  50% {
+    width: 100%
+  }
+
+  100% {
+    width: 0
+  }
+}
+
+@keyframes blink {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: #d0bcff;
+  }
+}
+
+/* Base state — tersembunyi */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* Saat masuk viewport */
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay untuk child elements */
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+
+.scroll-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-hidden {
+  opacity: 0;
+  transform: translateY(24px);
 }

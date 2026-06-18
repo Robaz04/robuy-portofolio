@@ -13,9 +13,11 @@
   "dependencies": {
     "@iconify-json/lucide": "^1.2.111",
     "@iconify-json/simple-icons": "^1.2.85",
+    "@nuxt/image": "^2.0.0",
     "@nuxt/ui": "^4.8.2",
     "nuxt": "^4.4.8",
-    "tailwindcss": "^4.3.0"
+    "tailwindcss": "^4.3.0",
+    "three": "^0.184.0"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.15.2",

@@ -2,6 +2,11 @@
   "name": "robuy-portofolio",
   "private": true,
   "type": "module",
+  "pnpm": {
+    "allowedBuildScripts": [
+      "sharp"
+    ]
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",

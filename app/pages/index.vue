@@ -1,6 +1,6 @@
 <template>
   <main class="relative z-10 flex flex-col items-center w-full px-5 md:px-6 max-w-[1200px] mx-auto">
-    <SectionsHeroSection />
+    <SectionsHeroSection/>
     <SectionsAboutSection />
     <SectionsSkillsSection />
   </main>

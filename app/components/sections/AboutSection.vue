@@ -41,15 +41,13 @@
                     <div
                         class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-full animate-pulse blur-sm">
                     </div>
-                    <div
-                        class="absolute inset-4 bg-surface-container/50 border border-outline-variant/30 rounded-full backdrop-blur-md flex items-center justify-center flex-col p-8 text-center overflow-hidden">
-                        <div class="font-code-sm text-code-sm text-primary/80 opacity-70 mb-4 whitespace-pre">
-                            x
+                    <div class="absolute inset-4 bg-surface-container/50 border border-outline-variant/30 rounded-full backdrop-blur-md flex items-center justify-center flex-col p-8 text-center overflow-hidden">
+                        <NuxtImg 
+                            src="images/foto2.webp" 
+                            alt="Foto Portofolio"
+                            class="w-full h-full object-cover rounded-full" 
+                        />
                         </div>
-                        <div class="w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-4">
-                        </div>
-                        <span class="material-symbols-outlined text-6xl text-primary opacity-80">code_blocks</span>
-                    </div>
                 </div>
             </div>
         </section>

@@ -230,3 +230,97 @@ body {
   opacity: 0;
   transform: translateY(24px);
 }
+
+/* experiences tab fade transition */
+.tab-fade-enter-active,
+.tab-fade-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.tab-fade-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.tab-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* navbar transition */
+/* Rotasi maju — experience datang dari kanan */
+.rotate-forward-leave-active {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+}
+
+.rotate-forward-leave-to {
+  transform: perspective(1000px) rotateY(45deg) translateX(-100%) scale(0.8);
+  opacity: 0;
+}
+
+.rotate-forward-enter-active {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+}
+
+.rotate-forward-enter-from {
+  transform: perspective(1000px) rotateY(-45deg) translateX(100%) scale(0.8);
+  opacity: 0;
+}
+
+/* Rotasi mundur — home datang dari kiri */
+.rotate-back-leave-active {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+}
+
+.rotate-back-leave-to {
+  transform: perspective(1000px) rotateY(-45deg) translateX(100%) scale(0.8);
+  opacity: 0;
+}
+
+.rotate-back-enter-active {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+}
+
+.rotate-back-enter-from {
+  transform: perspective(1000px) rotateY(45deg) translateX(-100%) scale(0.8);
+  opacity: 0;
+}
+
+/* featured projects */
+.featured-slide-enter-active,
+.featured-slide-leave-active {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.featured-slide-enter-from {
+  opacity: 0;
+  transform: scale(1.04);
+}
+
+.featured-slide-leave-to {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.featured-text-enter-active,
+.featured-text-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.featured-text-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.featured-text-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+/* fade transition for modal */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}

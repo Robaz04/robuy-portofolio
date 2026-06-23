@@ -71,7 +71,7 @@
 
                 <!-- Toggle button -->
                 <button
-                  class="flex items-center text-primary text-sm font-label-md hover:underline"
+                  class="flex items-center text-primary text-sm font-label-md"
                   @click="toggleDetails(index)"
                 >
                   {{ expandedIndices.includes(index) ? 'Hide Details' : 'Show Details' }}

@@ -31,23 +31,18 @@
           class="surface_glass p-gutter rounded-xl flex items-center justify-around gap-1"
         >
           <!-- Blok Lokasi -->
-          <div class="flex items-center gap-2 text-on-surface">
-            <span
-              class="material-symbols-outlined text-primary text-base"
-              data-icon="location_on"
-              >location_on</span
-            >
+          <div class="flex items-center justify-center gap-2 text-on-surface">
+            <UIcon name="i-custom-indonesia" class="w-5 h-5" />
             <p class="text-base font-normal">Jakarta, Indonesia</p>
           </div>
 
           <!-- Blok Universitas (Pekerjaan) -->
-          <div class="flex items-center gap-2 text-on-surface">
-            <span
-              class="material-symbols-outlined text-primary text-base"
-              data-icon="work"
-              style="font-variation-settings: 'FILL' 1"
-              >work</span
-            >
+          <div class="flex items-center justify-center gap-2 text-on-surface">
+            <NuxtImg
+              src="/images/logos/unpad.svg"
+              alt="UNPAD Logo"
+              class="w-6 h-6 object-contain"
+            />
             <p class="text-base font-normal">Padjadjaran University</p>
           </div>
         </div>
@@ -57,9 +52,9 @@
             class="flex items-center gap-4 glass-card p-4 rounded-xl group cursor-pointer"
           >
             <div
-              class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"
+              class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
             >
-              <span class="material-symbols-outlined text-primary">mail</span>
+              <UIcon name="i-custom-google" class="w-8 h-8" />
             </div>
             <div>
               <p class="text-xs text-on-surface-variant mb-1">Email</p>
@@ -85,9 +80,9 @@
             class="flex items-center gap-4 glass-card p-4 rounded-xl group cursor-pointer"
           >
             <div
-              class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"
+              class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
             >
-              <span class="material-symbols-outlined text-primary">share</span>
+              <UIcon name="i-custom-linkedin" class="w-8 h-8" />
             </div>
             <div>
               <p class="text-xs text-on-surface-variant mb-1">LinkedIn</p>
@@ -113,9 +108,9 @@
             class="flex items-center gap-4 glass-card p-4 rounded-xl group cursor-pointer"
           >
             <div
-              class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"
+              class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
             >
-              <span class="material-symbols-outlined text-primary">code</span>
+              <UIcon name="i-custom-github" class="w-8 h-8" />
             </div>
             <div>
               <p class="text-xs text-on-surface-variant mb-1">GitHub</p>
@@ -141,11 +136,9 @@
             class="flex items-center gap-4 glass-card p-4 rounded-xl group cursor-pointer"
           >
             <div
-              class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"
+              class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
             >
-              <span class="material-symbols-outlined text-primary"
-                >photo_camera</span
-              >
+              <UIcon name="i-custom-instagram" class="w-8 h-8" />
             </div>
             <div>
               <p class="text-xs text-on-surface-variant mb-1">Instagram</p>
@@ -171,11 +164,9 @@
             class="flex items-center gap-4 glass-card p-4 rounded-xl group cursor-pointer"
           >
             <div
-              class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"
+              class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
             >
-              <span class="material-symbols-outlined text-primary"
-                >smart_display</span
-              >
+              <UIcon name="i-custom-youtube" class="w-8 h-8" />
             </div>
             <div>
               <p class="text-xs text-on-surface-variant mb-1">Youtube</p>

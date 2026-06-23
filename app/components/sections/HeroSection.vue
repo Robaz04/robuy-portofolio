@@ -7,7 +7,7 @@
     <div class="flex flex-col items-start text-left z-10">
       <!-- Badge -->
       <div
-        class="inline-flex items-center space-x-2 bg-surface-container/50 border border-outline-variant/30 rounded-full px-4 py-2 mb-8 backdrop-blur-sm"
+        class="inline-flex items-center space-x-2 bg-surface-container/50 border border-outline-variant/30 rounded-full px-4 py-2 mb-8 mt-8 md:mt-0 backdrop-blur-sm"
       >
         <span
           class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(208,188,255,0.8)]"
@@ -91,7 +91,7 @@
           class="w-full h-full rounded-2xl overflow-hidden inner-card-shadow transform-3d bg-[#161021]"
         >
           <NuxtImg
-            src="/images/foto1.webp"
+            src="/images/profile/foto1.webp"
             alt="Foto Portofolio"
             class="w-full h-full object-cover rounded-2xl scale-100 group-hover:scale-105 transition-transform duration-500 ease-out"
           />
@@ -106,11 +106,28 @@
 
     <!-- Scroll indicator -->
     <div
-      class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce-slow text-on-surface-variant"
+      @click="scrollToAbout"
+      class="absolute bottom-[-10px] md:bottom-24 left-1/2 -translate-x-1/2 animate-bounce-slow flex items-center justify-center cursor-pointer"
     >
-      <span class="material-symbols-outlined text-3xl"
-        >keyboard_arrow_down</span
+      <!-- Kontainer Utama dengan Efek Neon Border Bergerak -->
+      <div
+        class="relative p-[2px] rounded-full overflow-hidden flex items-center justify-center before:content-[''] before:absolute before:w-[200%] before:h-[200%] before:bg-[conic-gradient(from_0deg,#00d2ff,#9d4edd,#00d2ff)] before:animate-[spin_4s_linear_infinite] hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(157,78,221,0.45)] shadow-[0_0_20px_rgba(157,78,221,0.3)]"
       >
+        <!-- Bagian Dalam (Background Utama & Konten) -->
+        <div
+          class="relative bg-surface/90 backdrop-blur-md px-6 py-2.5 rounded-full flex items-center gap-2 text-on-surface"
+        >
+          <span
+            class="material-symbols-outlined text-4xl text-primary animate-pulse"
+            >keyboard_arrow_down</span
+          >
+          <h3
+            class="font-bold text-lg tracking-wide bg-gradient-to-r from-[#00d2ff] to-[#9d4edd] bg-clip-text text-transparent"
+          >
+            Dive In!
+          </h3>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -120,6 +137,17 @@ import { ref, computed, onMounted, onUnmounted, inject } from "vue";
 
 // Tangkap fungsi navigasi dari layout default
 const navigateTo = inject("globalNavigate");
+
+const scrollToAbout = () => {
+  // Mencari elemen berkode ID 'about' di seluruh halaman web
+  const target = document.getElementById("about");
+  if (target) {
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+};
 
 const roles = [
   "Web Developer",
@@ -190,7 +218,6 @@ const handleMouseLeave = () => {
   const card = tiltCard.value;
   if (!card) return;
 
-  // Kembalikan ke posisi semula secara smooth memakai transisi CSS bawaan
   card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
   card.style.transition = "transform 0.5s ease-out";
 };
@@ -210,27 +237,20 @@ const handleMouseLeave = () => {
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
-/* ==========================================
-   CSS UNTUK ANIMASI BORDER BERPUTAR KOSMIK
-   ========================================== */
-
-/* Kita buat kotak raksasa di belakang yang ukurannya melampaui kartu (150%) */
 .animated-cosmic-border {
   position: absolute;
   width: 150%;
   height: 150%;
-  /* Menggunakan conic-gradient agar putarannya mulus tanpa garis patah */
   background: conic-gradient(
     from 0deg,
     #a855f7 0%,
     /* Purple */ #d946ef 25%,
     /* Fuchsia */ #6366f1 50%,
     /* Indigo */ #3b82f6 75%,
-    /* Blue */ #a855f7 100% /* Kembali ke Purple agar seamless */
+    /* Blue */ #a855f7 100%
   );
 }
 
-/* Jalankan animasi putar HANYA saat parent (.group) di-hover oleh user */
 .group:hover .animated-cosmic-border {
   animation: spinBorder 3s linear infinite;
 }

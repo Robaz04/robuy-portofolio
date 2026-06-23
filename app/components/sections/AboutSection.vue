@@ -43,7 +43,7 @@
                     </div>
                     <div class="absolute inset-4 bg-surface-container/50 border border-outline-variant/30 rounded-full backdrop-blur-md flex items-center justify-center flex-col p-8 text-center overflow-hidden">
                         <NuxtImg 
-                            src="images/foto2.webp" 
+                            src="images/profile/foto2.webp" 
                             alt="Foto Portofolio"
                             class="w-full h-full object-cover rounded-full" 
                         />

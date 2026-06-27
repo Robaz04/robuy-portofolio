@@ -215,6 +215,40 @@ body {
   transition-delay: 0.4s;
 }
 
+/* Row reveal */
+.reveal-row {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-row-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger per card dalam row */
+.reveal-row .stagger-1 { transition-delay: 0.05s; }
+.reveal-row .stagger-2 { transition-delay: 0.15s; }
+.reveal-row .stagger-3 { transition-delay: 0.25s; }
+
+/* Section title fade */
+.title-fade-enter-active,
+.title-fade-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.title-fade-enter-from { opacity: 0; transform: translateX(-8px); }
+.title-fade-leave-to   { opacity: 0; transform: translateX(8px); }
+
+/* Project card filter transition */
+.project-list-move,
+.project-list-enter-active,
+.project-list-leave-active {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.project-list-enter-from { opacity: 0; transform: translateY(16px) scale(0.97); }
+.project-list-leave-to   { opacity: 0; transform: translateY(-8px) scale(0.97); }
+.project-list-leave-active { position: absolute; }
+
 .scroll-section {
   opacity: 0;
   transform: translateY(24px);
@@ -324,3 +358,12 @@ body {
 .fade-enter-from, .fade-leave-to {
   opacity: 0;
 }
+
+.photo-slide-enter-active,
+.photo-slide-leave-active {
+  transition: opacity 0.3s ease;
+  position: absolute;
+  inset: 0;
+}
+.photo-slide-enter-from { opacity: 0; }
+.photo-slide-leave-to  { opacity: 0; }

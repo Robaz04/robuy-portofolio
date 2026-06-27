@@ -19,7 +19,7 @@
           <div
             v-for="skill in category.skills"
             :key="skill.name"
-            class="group tech-chip flex items-center space-x-2 px-3 py-1.5 rounded-xl font-label-md text-xs uppercase border border-white/5 bg-white/[0.02] transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] cursor-default"
+            class="group tech-chip flex items-center space-x-2 px-3 py-1.5 rounded-xl font-label-md text-xs uppercase border border-white/5 bg-white/[0.02] transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] cursor-pointer"
             :style="`--hover-color: ${skill.color}`"
           >
             <img 

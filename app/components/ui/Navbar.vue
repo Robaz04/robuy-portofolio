@@ -9,10 +9,14 @@
     >
       <!-- Logo (Otomatis di kiri saat HP karena justify-between) -->
       <button
-        class="font-display-lg text-headline-md text-primary tracking-tighter cursor-pointer"
+        class="font-display-lg cursor-pointer"
         @click="emit('navigate', 'home')"
       >
-        R
+        <NuxtImg
+          src="/images/logos/logo.webp"
+          alt="My Logo"
+          class="w-10 h-10 object-contain"
+        />
       </button>
 
       <!-- Menu Desktop (Tetap tersembunyi di HP) -->

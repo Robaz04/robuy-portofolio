@@ -21,7 +21,7 @@
       <h1
         class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 font-bold tracking-tighter"
       >
-        Robby Azwan Saputra
+        Robby Azwan
       </h1>
 
       <!-- Typewriter -->

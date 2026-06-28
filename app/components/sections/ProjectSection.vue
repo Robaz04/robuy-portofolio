@@ -117,13 +117,14 @@
                       :key="link.url"
                       :to="link.url"
                       target="_blank"
-                      class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-high border border-on-surface/10 md:surface_glass hover:bg-primary/20 hover:scale-105 transition-all"
+                      class="w-10 h-10 flex items-center justify-center rounded-full md:surface_glass hover:scale-105 transition-all"
                       :title="link.label"
                     >
-                      <span
-                        class="material-symbols-outlined text-primary text-[18px]"
-                        >{{ link.icon }}</span
-                      >
+                      <NuxtImg
+                        :src="`/images/logos/${link.icon}.svg`"
+                        alt="Icon"
+                        class="w-8 h-8"
+                      />
                     </NuxtLink>
                   </div>
                 </div>
@@ -312,9 +313,11 @@
                       class="flex items-center gap-1.5 text-on-surface-variant hover:text-violet-400 transition-all text-sm hover:translate-x-0.5 duration-300"
                       :title="link.label"
                     >
-                      <span class="material-symbols-outlined text-[18px]">{{
-                        link.icon
-                      }}</span>
+                      <NuxtImg
+                        :src="`/images/logos/${link.icon}.svg`"
+                        alt="Icon"
+                        class="w-6 h-6"
+                      />
                       <span class="text-xs">{{ link.label }}</span>
                     </NuxtLink>
                   </div>
@@ -338,17 +341,50 @@
           I'm open to freelance opportunities and collaborations. Let's build
           something great together.
         </p>
-        <div class="flex flex-col md:flex-row justify-center gap-4">
+        <div
+          class="flex flex-col sm:flex-row justify-center items-center gap-4 w-full max-w-md mx-auto"
+        >
+          <!-- Tombol 1: Start a Conversation (Premium Shimmer & Glow Effect) -->
           <button
-            class="bg-primary text-on-primary font-bold py-4 px-10 rounded-lg hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all active:scale-95"
+            @click="emit('navigate', 'contact')"
+            class="relative w-full sm:w-auto bg-primary text-on-primary font-bold py-4 px-10 rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(139,92,246,0.2)] hover:shadow-[0_0_30px_rgba(139,92,246,0.6)] transition-all duration-300 active:scale-95 cursor-pointer group/btn"
           >
-            Start a Conversation
+            <!-- Efek Kilatan Cahaya Premium -->
+            <div
+              class="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover/btn:animate-[shimmer_1.2s_ease-in-out_infinite]"
+            />
+
+            <span class="relative z-10 flex items-center justify-center gap-2">
+              Start a Conversation
+            </span>
           </button>
-          <button
-            class="surface_glass text-primary border border-primary/30 font-bold py-4 px-10 rounded-lg hover:bg-primary/10 transition-all active:scale-95"
+
+          <!-- Tombol 2: View Resume (Premium Glassmorphism & Flowing Border) -->
+          <div
+            class="relative p-[1px] w-full sm:w-auto rounded-xl overflow-hidden flex items-center justify-center bg-outline-variant/30 hover:bg-transparent transition-colors duration-500 group/resume active:scale-95 shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_0_25px_rgba(139,92,246,0.3)]"
           >
-            View Resume
-          </button>
+            <!-- Efek Bingkai Mengalir (Hanya aktif saat di-hover) -->
+            <div
+              class="overflow-hidden w-100 h-100 absolute inset-0 opacity-0 group-hover/resume:opacity-100 transition-opacity duration-500 before:content-[''] before:absolute before:w-[200%] before:h-[200%] before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:bg-[conic-gradient(from_0deg,#00d2ff,#9d4edd,#00d2ff)] before:animate-[spin_4s_linear_infinite]"
+            />
+
+            <!-- Lapisan Dalam Tombol -->
+            <NuxtLink
+              to="/cv/cv_robuy.pdf"
+              target="_blank"
+              class="relative w-full sm:w-auto block text-center bg-surface/90 hover:bg-transparent group-hover/resume:surface_glass backdrop-blur-md text-primary font-bold py-[15px] px-10 rounded-[11px] transition-all duration-300 cursor-pointer"
+            >
+              <span
+                class="flex items-center justify-center gap-2 group-hover/resume:text-[#23043F] transition-colors duration-300"
+              >
+                View Resume
+                <span
+                  class="material-symbols-outlined text-sm transition-transform duration-300 group-hover/resume:translate-x-0.5"
+                  >open_in_new</span
+                >
+              </span>
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </section>
@@ -357,6 +393,7 @@
 <script setup>
 import { ref, computed, reactive, nextTick, onMounted, onUnmounted } from "vue";
 import { useRowReveal } from "~/composables/useRowReveal";
+const emit = defineEmits(["navigate"]);
 
 // ── FEATURED ────────────────────────────────────────────────
 const activeFeatured = ref(0);
@@ -366,12 +403,12 @@ const featuredProjects = [
     title: "NatSense AR",
     description:
       "An augmented reality mobile application built with Unity and AR Foundation, simulating natural disaster scenarios such as flood, forest fire, and storm through interactive diorama scenes with real-time mode toggling, particle effects, and animated environments.",
-    icon: "view_in_ar",
+    icon: "view_in_ar=",
     photos: "/images/projects/natsense/nat1.webp",
     links: [
       {
         label: "Drive",
-        icon: "folder",
+        icon: "drive",
         url: "https://drive.google.com/drive/folders/1L805bJFY12Gp8MxTbwu5Lq_ZiGCWpU0T?usp=sharing",
       },
     ],
@@ -385,7 +422,7 @@ const featuredProjects = [
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/Robaz04/human-detection-with-hog-svm",
       },
     ],
@@ -399,12 +436,12 @@ const featuredProjects = [
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/yumairai/Way2Home_KuliPremium_PPL7",
       },
       {
         label: "Live",
-        icon: "open_in_new",
+        icon: "deploy",
         url: "https://way2home.edhyrg.my.id/",
       },
     ],
@@ -448,7 +485,7 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/KangDap/smart-parking-detection-system",
       },
     ],
@@ -469,7 +506,7 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/Robaz04/3d-earth-climate",
       },
     ],
@@ -496,7 +533,7 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/luthfiarsd/robot-angklung-hand-detection",
       },
     ],
@@ -524,7 +561,7 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/Robaz04/decision-hub",
       },
     ],
@@ -556,7 +593,7 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/KangDap/coren",
       },
     ],
@@ -586,7 +623,7 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/Robaz04/rodaza-mining",
       },
     ],
@@ -614,12 +651,12 @@ const projects = reactive([
     links: [
       {
         label: "Paper",
-        icon: "description",
+        icon: "paper",
         url: "https://drive.google.com/file/d/1jvBoJw76G7GXtgETLWrSsErWMjB30DKC/view",
       },
       {
         label: "Colab",
-        icon: "science",
+        icon: "colab",
         url: "https://colab.research.google.com/drive/1N2vOlIKf4BoFMe6tE8fJgqq9qT3cfrc1",
       },
     ],
@@ -647,8 +684,16 @@ const projects = reactive([
     ],
     activePhoto: 0,
     links: [
-      { label: "GitHub", icon: "code", url: "#" },
-      { label: "Paper", icon: "description", url: "#" },
+      {
+        label: "GitHub",
+        icon: "github",
+        url: "https://github.com/Robaz04/xyz-company-warehouse",
+      },
+      {
+        label: "Paper",
+        icon: "paper",
+        url: "https://drive.google.com/file/d/16aLYe7C6EoLY0EjcR3103fp_49IB9OO6/view?usp=sharing",
+      },
     ],
   },
   {
@@ -677,7 +722,7 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/Robaz04/human-detection-with-hog-svm",
       },
     ],
@@ -698,7 +743,7 @@ const projects = reactive([
     links: [
       {
         label: "Drive",
-        icon: "folder",
+        icon: "drive",
         url: "https://drive.google.com/drive/folders/1L805bJFY12Gp8MxTbwu5Lq_ZiGCWpU0T?usp=sharing",
       },
     ],
@@ -727,12 +772,12 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/yumairai/Way2Home_KuliPremium_PPL7",
       },
       {
         label: "Live",
-        icon: "open_in_new",
+        icon: "deploy",
         url: "https://way2home.edhyrg.my.id/",
       },
     ],
@@ -762,12 +807,12 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/Kurtz17/NusaGraph",
       },
       {
         label: "Live",
-        icon: "open_in_new",
+        icon: "deploy",
         url: "https://nusagraph.vercel.app/",
       },
     ],
@@ -801,12 +846,12 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/dzikribassyril/UAV-Waste-Severity-Mapping",
       },
       {
         label: "Live",
-        icon: "open_in_new",
+        icon: "deploy",
         url: "https://uav-waste-severity-mapping.streamlit.app/",
       },
     ],
@@ -827,12 +872,12 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/Robaz04/spotify-clone",
       },
       {
         label: "Live",
-        icon: "open_in_new",
+        icon: "deploy",
         url: "https://spotify-clone.vercel.app/",
       },
     ],
@@ -861,7 +906,7 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/Robaz04/perampok-market",
       },
     ],
@@ -881,12 +926,12 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/Robaz04/robaz-shooting-game",
       },
       {
         label: "Drive",
-        icon: "folder",
+        icon: "drive",
         url: "https://drive.google.com/drive/folders/1r5iz9VERJGO69FE03dBqWW1QCcUBjk1b?usp=sharing",
       },
     ],
@@ -915,7 +960,7 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/KangDap/rodaza-coffee",
       },
     ],
@@ -932,12 +977,12 @@ const projects = reactive([
     links: [
       {
         label: "GitHub",
-        icon: "code",
+        icon: "github",
         url: "https://github.com/Robaz04/robuy-portofolio",
       },
       {
         label: "Live",
-        icon: "open_in_new",
+        icon: "deploy",
         url: "https://robbyazwan.vercel.app/",
       },
     ],

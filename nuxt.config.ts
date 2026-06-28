@@ -38,7 +38,13 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      title: 'Robby Azwan | Full Stack Web Developer', 
       link: [
+        { 
+          rel: 'icon', 
+          type: 'image/x-icon', 
+          href: '/images/logos/logo.webp'  
+        },
         {
           rel: 'preconnect',
           href: 'https://fonts.googleapis.com'

@@ -111,7 +111,7 @@
     >
       <!-- Kontainer Utama dengan Efek Neon Border Bergerak -->
       <div
-        class="relative p-[2px] rounded-full overflow-hidden flex items-center justify-center before:content-[''] before:absolute before:w-[200%] before:h-[200%] before:bg-[conic-gradient(from_0deg,#00d2ff,#9d4edd,#00d2ff)] before:animate-[spin_4s_linear_infinite] hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(157,78,221,0.45)] shadow-[0_0_20px_rgba(157,78,221,0.3)]"
+        class="relative p-[2px] rounded-full overflow-hidden flex items-center justify-center before:content-[''] before:absolute before:w-[300%] before:h-[300%] before:bg-[conic-gradient(from_0deg,#00d2ff,#9d4edd,#00d2ff)] before:animate-[spin_4s_linear_infinite] hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(157,78,221,0.45)] shadow-[0_0_20px_rgba(157,78,221,0.3)]"
       >
         <!-- Bagian Dalam (Background Utama & Konten) -->
         <div

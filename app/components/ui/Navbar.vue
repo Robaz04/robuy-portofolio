@@ -35,6 +35,13 @@
           {{ item.label }}
         </button>
       </div>
+      <NuxtLink
+        to="/cv/cv_robuy.pdf"
+        target="_blank"
+        class="hidden md:block bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md hover:opacity-80 transition-opacity"
+      >
+        Resume
+      </NuxtLink>
 
       <!-- Tombol Hamburger (Otomatis di kanan saat HP, ditambahkan event click) -->
       <button
@@ -82,6 +89,18 @@
       >
         {{ item.label }}
       </button>
+    </div>
+    <!-- Resume button di mobile — tambahkan ini setelah div menu -->
+    <div class="mt-auto pt-6 border-t border-outline-variant/20">
+      <NuxtLink
+        to="/cv/cv_robuy.pdf"
+        target="_blank"
+        class="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-3 rounded-full font-label-md text-label-md hover:opacity-80 transition-opacity"
+        @click="isOpen = false"
+      >
+        <span class="material-symbols-outlined text-[18px]">description</span>
+        Resume
+      </NuxtLink>
     </div>
   </aside>
 </template>

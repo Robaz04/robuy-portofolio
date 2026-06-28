@@ -36,7 +36,7 @@
         class="min-h-screen bg-transparent flex flex-col items-center w-full px-5 md:px-6"
       >
         <div class="w-full max-w-[1200px] mx-auto pt-20">
-          <SectionsProjectSection />
+          <SectionsProjectSection @navigate="handleNavigate"/>
         </div>
       </main>
 

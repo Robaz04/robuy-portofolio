@@ -6,7 +6,7 @@
       class="flex flex-col md:flex-row justify-evenly items-center px-gutter max-w-container-max mx-auto space-y-4 md:space-y-0"
     >
       <button
-        class="font-display-lg cursor-pointer"
+        class="font-display-lg cursor-pointer hover:scale-110 transition-transform duration-300"
         @click="globalNavigate('home')"
       >
         <NuxtImg
@@ -24,21 +24,21 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <UIcon name="i-custom-github" class="w-7 h-7" />
+          <UIcon name="i-custom-github" class="w-7 h-7 hover:scale-110 transition-all duration-300" />
         </NuxtLink>
         <NuxtLink
           to="https://instagram.com/robbyazwan"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <UIcon name="i-custom-instagram" class="w-7 h-7" />
+          <UIcon name="i-custom-instagram" class="w-7 h-7 hover:scale-110 transition-all duration-300" />
         </NuxtLink>
         <NuxtLink
           to="https://wa.me/6281384310179"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <UIcon name="i-custom-whatsapp" class="w-7 h-7" />
+          <UIcon name="i-custom-whatsapp" class="w-7 h-7 hover:scale-110 transition-all duration-300" />
         </NuxtLink>
       </div>
     </div>

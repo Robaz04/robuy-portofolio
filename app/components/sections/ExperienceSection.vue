@@ -116,12 +116,9 @@
 
                 <!-- Accordion -->
                 <div
+                  :data-accordion="`accordion-${index}`"
                   class="overflow-hidden transition-all duration-500 ease-in-out"
-                  :style="
-                    expandedIndices.includes(index)
-                      ? 'max-height: 600px; opacity: 1'
-                      : 'max-height: 0; opacity: 0'
-                  "
+                  style="max-height: 0; opacity: 0"
                 >
                   <div class="pt-6 space-y-4">
                     <!-- Bullets -->
@@ -132,23 +129,89 @@
                         {{ bullet }}
                       </li>
                     </ul>
-
-                    <div class="border-t border-outline-variant/20 pt-4">
+                    <div
+                      v-if="item.activityPhotos?.length"
+                      class="border-t border-outline-variant/20 pt-4"
+                    >
                       <p
                         class="text-xs font-bold text-on-surface uppercase tracking-widest mb-3"
                       >
                         Activity Photos
                       </p>
-                      <div class="grid grid-cols-2 gap-4">
+
+                      <!-- 1 foto: full width -->
+                      <div v-if="item.activityPhotos.length === 1">
                         <div
-                          v-for="n in 2"
-                          :key="n"
-                          class="aspect-video bg-surface-container-highest rounded-lg border border-outline-variant/20 flex items-center justify-center"
+                          class="w-full aspect-video rounded-lg overflow-hidden border border-outline-variant/20"
                         >
-                          <span
-                            class="material-symbols-outlined opacity-20 text-4xl"
-                            >image</span
-                          >
+                          <NuxtImg
+                            :src="item.activityPhotos[0]"
+                            alt="Activity Photo"
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            format="webp"
+                            quality="80"
+                          />
+                        </div>
+                      </div>
+
+                      <!-- 2 foto: side by side -->
+                      <div
+                        v-else-if="item.activityPhotos.length === 2"
+                        class="grid grid-cols-2 gap-3"
+                      >
+                        <div
+                          v-for="(photo, pi) in item.activityPhotos"
+                          :key="pi"
+                          class="aspect-video rounded-lg overflow-hidden border border-outline-variant/20"
+                        >
+                          <NuxtImg
+                            :src="photo"
+                            alt="Activity Photo"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                            format="webp"
+                            quality="80"
+                          />
+                        </div>
+                      </div>
+                      <!-- 4 foto: grid 2x2 -->
+                      <div
+                        v-else-if="item.activityPhotos.length === 4"
+                        class="grid grid-cols-2 gap-3"
+                      >
+                        <div
+                          v-for="(photo, pi) in item.activityPhotos"
+                          :key="pi"
+                          class="aspect-video rounded-lg overflow-hidden border border-outline-variant/20"
+                        >
+                          <NuxtImg
+                            :src="photo"
+                            alt="Activity Photo"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                            format="webp"
+                            quality="80"
+                          />
+                        </div>
+                      </div>
+
+                      <!-- 5+ foto: grid masonry-like, 3 kolom di desktop -->
+                      <div v-else class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        <div
+                          v-for="(photo, pi) in item.activityPhotos"
+                          :key="pi"
+                          class="aspect-video rounded-lg overflow-hidden border border-outline-variant/20"
+                          :class="pi === 0 ? 'col-span-2 md:col-span-1' : ''"
+                        >
+                          <NuxtImg
+                            :src="photo"
+                            alt="Activity Photo"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                            format="webp"
+                            quality="80"
+                          />
                         </div>
                       </div>
                     </div>
@@ -164,7 +227,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, nextTick } from "vue";
 
 const tabs = [
   { key: "work", label: "Work" },
@@ -182,10 +245,28 @@ const switchTab = (tab) => {
 };
 
 const toggleDetails = (index) => {
+  const key = `accordion-${index}`;
+  const el = document.querySelector(`[data-accordion="${key}"]`);
+
   if (expandedIndices.value.includes(index)) {
+    // Tutup: set height ke aktual dulu, lalu animate ke 0
+    if (el) {
+      el.style.maxHeight = el.scrollHeight + "px";
+      requestAnimationFrame(() => {
+        el.style.maxHeight = "0";
+        el.style.opacity = "0";
+      });
+    }
     expandedIndices.value = expandedIndices.value.filter((i) => i !== index);
   } else {
+    // Buka: animate ke scrollHeight aktual
     expandedIndices.value.push(index);
+    nextTick(() => {
+      if (el) {
+        el.style.maxHeight = el.scrollHeight + "px";
+        el.style.opacity = "1";
+      }
+    });
   }
 };
 
@@ -203,6 +284,10 @@ const data = {
         "Served as a project mentor, assisting students in designing, developing, and debugging web-based applications throughout the course.",
         "Collaborated with lecturers and fellow assistants to create an engaging learning environment and improve students understanding of full-stack web development.",
       ],
+      activityPhotos: [
+        "images/experiences/asprak/asprak1.webp",
+        "images/experiences/asprak/asprak2.webp",
+      ],
     },
   ],
   org: [
@@ -218,6 +303,12 @@ const data = {
         "Coordinated with team members and organizational stakeholders to ensure the successful planning and implementation of social impact activities.",
         "Provided leadership and mentorship to junior members, fostering effective teamwork, communication, and operational efficiency across departmental programs.",
       ],
+      activityPhotos: [
+        "images/experiences/depsos/depsos1.webp",
+        "images/experiences/depsos/depsos2.webp",
+        "images/experiences/depsos/depsos3.webp",
+        "images/experiences/depsos/depsos4.webp",
+      ],
     },
     {
       role: "Staff of IT Competition IFest 2025",
@@ -227,22 +318,31 @@ const data = {
       type: "Member",
       icon: "images/logos/ifest.webp",
       bullets: [
-        "Contributed to several open-source projects on GitHub.",
-        "Helped maintain internal tools used by student organizations.",
-        "Advocated for best practices in version control and documentation.",
+        "Managed participant communications for technology competitions involving approximately 100 participants across 38 teams, ensuring the timely delivery of technical information, schedules, and event requirements.",
+        "Coordinated with external vendors and competition partners to support the successful implementation of the Competitive Programming track, including platform readiness and competition logistics.",
+        "Contributed to the planning and execution of the Hackathon event by supporting competition design, participant engagement, and on-site operations throughout the event lifecycle.",
+      ],
+      activityPhotos: [
+        "images/experiences/itcomp/itcomp1.webp",
+        "images/experiences/itcomp/itcomp2.webp",
+        "images/experiences/itcomp/itcomp3.webp",
       ],
     },
     {
-      role: "C++ Programming Tutor",
+      role: "Algorithm and Programming Tutor",
       org: "Character Building Season 2025",
       location: "Jatinangor, Sumedang",
       date: "Aug 2025 – Nov 2025",
       type: "Volunteer",
       icon: "images/logos/himatif.webp",
       bullets: [
-        "Contributed to several open-source projects on GitHub.",
-        "Helped maintain internal tools used by student organizations.",
-        "Advocated for best practices in version control and documentation.",
+        "Delivered tutorial sessions on algorithm design, problem-solving techniques, and programming fundamentals using C++ as the primary instructional language.",
+        "Guided students through programming assignments and practical exercises by providing technical mentorship and debugging support.",
+        "Evaluated coding projects, assessed student performance, and provided constructive feedback to strengthen analytical and computational thinking skills.",
+      ],
+      activityPhotos: [
+        "images/experiences/cbs/cbs1.webp",
+        "images/experiences/cbs/cbs2.webp",
       ],
     },
     {
@@ -253,12 +353,16 @@ const data = {
       type: "Contract",
       icon: "images/logos/himatif.webp",
       bullets: [
-        "Contributed to several open-source projects on GitHub.",
-        "Helped maintain internal tools used by student organizations.",
-        "Advocated for best practices in version control and documentation.",
+        "Coordinated accommodation and transportation arrangements to ensure participants, committees, and event activities operated smoothly throughout the program.",
+        "Collaborated with multiple event divisions to identify operational needs and provide logistical support for successful event execution.",
+        "Assisted in resolving on-site challenges and contributed to maintaining an organized, efficient, and participant-friendly event environment.",
+      ],
+      activityPhotos: [
+        "images/experiences/iffd/iffd1.webp",
+        "images/experiences/iffd/iffd2.webp",
       ],
     },
-     {
+    {
       role: "Staff of Logistics",
       org: "Informatics Gram 2024",
       location: "Jatinangor, Sumedang",
@@ -266,10 +370,11 @@ const data = {
       type: "Contract",
       icon: "images/logos/himatif.webp",
       bullets: [
-        "Contributed to several open-source projects on GitHub.",
-        "Helped maintain internal tools used by student organizations.",
-        "Advocated for best practices in version control and documentation.",
+        "Managed the procurement, preparation, and distribution of logistical resources required for various event activities and sessions.",
+        "Participated in brainstorming and planning discussions to develop effective logistics strategies and improve operational efficiency.",
+        "Coordinated with committee members to ensure all equipment, materials, and venue requirements were available and ready according to the event schedule.",
       ],
+      activityPhotos: ["images/experiences/instagram/logistikig.webp"],
     },
     {
       role: "Staff of Logistics",
@@ -279,9 +384,14 @@ const data = {
       type: "Contract",
       icon: "images/logos/setara.webp",
       bullets: [
-        "Contributed to several open-source projects on GitHub.",
-        "Helped maintain internal tools used by student organizations.",
-        "Advocated for best practices in version control and documentation.",
+        "Supported the planning and execution of event logistics by preparing necessary equipment, materials, and venue arrangements.",
+        "Worked closely with organizing committees to anticipate resource requirements and ensure timely availability of logistical support.",
+        "Contributed to the overall success of the event through proactive coordination, problem-solving, and effective teamwork.",
+      ],
+      activityPhotos: [
+        "images/experiences/setara/setara1.webp",
+        "images/experiences/setara/setara2.webp",
+        "images/experiences/setara/setara3.webp",
       ],
     },
   ],

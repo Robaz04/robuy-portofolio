@@ -40,7 +40,7 @@
         target="_blank"
         class="hidden md:block bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md hover:opacity-80 transition-opacity"
       >
-        Resume
+        CV
       </NuxtLink>
 
       <!-- Tombol Hamburger (Otomatis di kanan saat HP, ditambahkan event click) -->
@@ -99,7 +99,7 @@
         @click="isOpen = false"
       >
         <span class="material-symbols-outlined text-[18px]">description</span>
-        Resume
+        CV
       </NuxtLink>
     </div>
   </aside>

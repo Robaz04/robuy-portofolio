@@ -16,7 +16,7 @@
         />
       </button>
       <p class="font-body-md text-body-md text-on-surface-variant">
-        © 2026 Robby Azwan Saputra. Built with precision.
+        © 2026 Robby Azwan Saputra. All rights reserved.
       </p>
       <div class="flex space-x-2">
         <NuxtLink

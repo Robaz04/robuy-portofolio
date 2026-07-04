@@ -1,119 +1,120 @@
 <template>
   <section
-    class="scroll-section min-h-screen w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative pt-20 pb-20"
+    class="scroll-section min-h-screen w-full flex flex-col relative pt-20 pb-8"
     id="home"
   >
-    <!-- Left: Text -->
-    <div class="flex flex-col items-start text-left z-10">
-      <!-- Badge -->
-      <div
-        class="inline-flex items-center space-x-2 bg-surface-container/50 border border-outline-variant/30 rounded-full px-4 py-2 mb-8 mt-8 md:mt-0 backdrop-blur-sm"
-      >
-        <span
-          class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(208,188,255,0.8)]"
-        />
-        <span class="text-sm text-on-surface-variant font-label-md"
-          >Open to collaborate</span
-        >
-      </div>
-
-      <!-- Name -->
-      <h1
-        class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 font-bold tracking-tighter"
-      >
-        Robby Azwan
-      </h1>
-
-      <!-- Typewriter -->
-      <div class="h-12 mb-6">
-        <span
-          class="font-headline-md text-headline-sm md:text-headline-md gradient-text font-semibold typewriter-text"
-        >
-          {{ currentRole }}
-        </span>
-      </div>
-
-      <!-- Tagline -->
-      <p
-        class="max-w-xl text-on-surface-variant font-body-lg text-body-lg mb-10 leading-relaxed"
-      >
-        I build things for the web, explore patterns in data, experiment with
-        machine learning and turning curiosity into code.
-      </p>
-
-      <!-- CTA -->
-      <div
-        class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6"
-      >
-        <!-- Tombol View My Work -->
-        <button
-          @click="navigateTo('projects')"
-          class="bg-gradient-to-r from-inverse-primary to-primary text-on-primary hover:text-black px-8 py-3 rounded-full font-label-md text-label-md hover:shadow-[0_0_20px_rgba(109,59,215,0.4)] transition-all duration-300 text-center cursor-pointer"
-        >
-          View My Work
-        </button>
-
-        <!-- Tombol Get In Touch -->
-        <button
-          @click="navigateTo('contact')"
-          class="bg-transparent border border-primary text-primary px-8 py-3 rounded-full font-label-md text-label-md hover:bg-primary/10 transition-colors duration-300 text-center cursor-pointer"
-        >
-          Get In Touch
-        </button>
-      </div>
-    </div>
-
-    <!-- Right: Photo placeholder -->
-    <div class="flex justify-center md:justify-end items-center z-10 w-full">
-      <div
-        ref="tiltCard"
-        class="relative w-full max-w-md aspect-square rounded-2xl border border-primary/30 bg-[#161021]/50 backdrop-blur-sm transition-all duration-300 ease-out preserve-3d cursor-pointer group"
-        style="
-          box-shadow:
-            0 0 40px -5px rgba(168, 85, 247, 0.2),
-            0 0 20px -5px rgba(217, 70, 239, 0.1);
-        "
-        @mousemove="handleMouseMove"
-        @mouseleave="handleMouseLeave"
-        @mouseenter="handleMouseEnter"
-      >
+    <!-- Grid konten utama — flex-grow agar mengisi sisa ruang -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center flex-grow">
+      <!-- Left: Text -->
+      <div class="flex flex-col items-start text-left z-10">
+        <!-- Badge -->
         <div
-          class="absolute inset-[-2px] rounded-2xl overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 flex items-center justify-center"
+          class="inline-flex items-center space-x-2 bg-surface-container/50 border border-outline-variant/30 rounded-full px-4 py-2 mb-8 mt-8 md:mt-0 backdrop-blur-sm"
         >
-          <div class="animated-cosmic-border"></div>
-        </div>
-
-        <div
-          class="absolute inset-4 bg-gradient-to-tr from-purple-500 to-fuchsia-500 rounded-2xl opacity-0 group-hover:opacity-40 group-hover:blur-2xl transition-all duration-500 -z-20"
-        ></div>
-
-        <div
-          class="w-full h-full rounded-2xl overflow-hidden inner-card-shadow transform-3d bg-[#161021]"
-        >
-          <NuxtImg
-            src="/images/profile/foto1.webp"
-            alt="Foto Portofolio"
-            class="w-full h-full object-cover rounded-2xl scale-100 group-hover:scale-105 transition-transform duration-500 ease-out"
+          <span
+            class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(208,188,255,0.8)]"
           />
+          <span class="text-sm text-on-surface-variant font-label-md"
+            >Open to collaborate</span
+          >
         </div>
 
+        <!-- Name -->
+        <h1
+          class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 font-bold tracking-tighter"
+        >
+          Robby Azwan
+        </h1>
+
+        <!-- Typewriter -->
+        <div class="h-12 mb-6">
+          <span
+            class="font-headline-md text-headline-sm md:text-headline-md gradient-text font-semibold typewriter-text"
+          >
+            {{ currentRole }}
+          </span>
+        </div>
+
+        <!-- Tagline -->
+        <p
+          class="max-w-xl text-on-surface-variant font-body-lg text-body-lg mb-10 leading-relaxed"
+        >
+          I build things for the web, explore patterns in data, experiment with
+          machine learning and turning curiosity into code.
+        </p>
+
+        <!-- CTA -->
         <div
-          class="absolute inset-0 pointer-events-none rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 mix-blend-overlay"
-          :style="shineStyle"
-        ></div>
+          class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6"
+        >
+          <!-- Tombol View My Work -->
+          <button
+            @click="navigateTo('projects')"
+            class="bg-gradient-to-r from-inverse-primary to-primary text-on-primary hover:text-black px-8 py-3 rounded-full font-label-md text-label-md hover:shadow-[0_0_20px_rgba(109,59,215,0.4)] transition-all duration-300 text-center cursor-pointer"
+          >
+            View My Work
+          </button>
+
+          <!-- Tombol Get In Touch -->
+          <button
+            @click="navigateTo('contact')"
+            class="bg-transparent border border-primary text-primary px-8 py-3 rounded-full font-label-md text-label-md hover:bg-primary/10 transition-colors duration-300 text-center cursor-pointer"
+          >
+            Get In Touch
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Photo placeholder -->
+      <div class="flex justify-center md:justify-end items-center z-10 w-full">
+        <div
+          ref="tiltCard"
+          class="relative w-full max-w-md aspect-square rounded-2xl border border-primary/30 bg-[#161021]/50 backdrop-blur-sm transition-all duration-300 ease-out preserve-3d cursor-pointer group"
+          style="
+            box-shadow:
+              0 0 40px -5px rgba(168, 85, 247, 0.2),
+              0 0 20px -5px rgba(217, 70, 239, 0.1);
+          "
+          @mousemove="handleMouseMove"
+          @mouseleave="handleMouseLeave"
+          @mouseenter="handleMouseEnter"
+        >
+          <div
+            class="absolute inset-[-2px] rounded-2xl overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 flex items-center justify-center"
+          >
+            <div class="animated-cosmic-border"></div>
+          </div>
+
+          <div
+            class="absolute inset-4 bg-gradient-to-tr from-purple-500 to-fuchsia-500 rounded-2xl opacity-0 group-hover:opacity-40 group-hover:blur-2xl transition-all duration-500 -z-20"
+          ></div>
+
+          <div
+            class="w-full h-full rounded-2xl overflow-hidden inner-card-shadow transform-3d bg-[#161021]"
+          >
+            <NuxtImg
+              src="/images/profile/foto1.webp"
+              alt="Foto Portofolio"
+              class="w-full h-full object-cover rounded-2xl scale-100 group-hover:scale-105 transition-transform duration-500 ease-out"
+            />
+          </div>
+
+          <div
+            class="absolute inset-0 pointer-events-none rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 mix-blend-overlay"
+            :style="shineStyle"
+          ></div>
+        </div>
       </div>
     </div>
 
     <!-- Scroll indicator -->
     <div
       @click="scrollToAbout"
-      class="absolute bottom-[-10px] md:bottom-24 left-1/2 -translate-x-1/2 animate-bounce-slow flex items-center justify-center cursor-pointer"
+      class="flex items-center justify-center pt-6 pb-2 animate-bounce-slow cursor-pointer"
     >
-      <!-- Kontainer Utama dengan Efek Neon Border Bergerak -->
       <div
         class="relative p-[2px] rounded-full overflow-hidden flex items-center justify-center before:content-[''] before:absolute before:w-[300%] before:h-[300%] before:bg-[conic-gradient(from_0deg,#00d2ff,#9d4edd,#00d2ff)] before:animate-[spin_4s_linear_infinite] hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(157,78,221,0.45)] shadow-[0_0_20px_rgba(157,78,221,0.3)]"
       >
-        <!-- Bagian Dalam (Background Utama & Konten) -->
         <div
           class="relative bg-surface/90 backdrop-blur-md px-6 py-2.5 rounded-full flex items-center gap-2 text-on-surface"
         >

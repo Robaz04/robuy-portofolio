@@ -1,15 +1,24 @@
 <template>
   <section class="w-full py-stack-lg" id="experience">
     <!-- Section Title -->
-    <div class="mb-stack-md flex items-center space-x-4">
-      <h2
-        class="font-headline-md text-headline-sm md:text-headline-md text-on-surface font-semibold"
+    <div>
+      <div class="mb-4 flex items-center space-x-4">
+        <h2
+          class="font-headline-md text-headline-sm md:text-headline-md text-on-surface font-semibold whitespace-nowrap"
+        >
+          Experience
+        </h2>
+        <div
+          class="h-px bg-gradient-to-r from-primary to-transparent flex-grow max-w-md opacity-50"
+        />
+      </div>
+
+      <p
+        class="text-on-surface-variant font-body-lg text-body-md md:text-body-lg leading-relaxed max-w-2xl mb-10"
       >
-        Experience
-      </h2>
-      <div
-        class="h-px bg-gradient-to-r from-primary to-transparent flex-grow max-w-md opacity-50"
-      />
+        The experiences that have shaped my technical expertise, leadership, and
+        passion for continuous learning.
+      </p>
     </div>
 
     <!-- Tabs -->

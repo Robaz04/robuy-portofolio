@@ -7,7 +7,7 @@
         <h2
           class="font-headline-md text-headline-sm md:text-headline-md text-on-surface font-semibold whitespace-nowrap"
         >
-          Get In Touch
+          Contact Me
         </h2>
         <div
           class="h-px bg-gradient-to-r from-primary to-transparent flex-grow max-w-md opacity-50"
@@ -17,9 +17,8 @@
       <p
         class="text-on-surface-variant font-body-lg text-body-md md:text-body-lg leading-relaxed max-w-2xl mb-10"
       >
-        I'm currently open to new opportunities — whether it's a freelance
-        project, internship, or just a conversation about tech. My inbox is
-        always open.
+        Interested in collaborating or discussing new ideas? I'd love to connect
+        and create something meaningful together.
       </p>
     </div>
 

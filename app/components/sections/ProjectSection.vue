@@ -14,8 +14,8 @@
         Projects
       </h1>
       <p class="text-on-surface-variant font-body-lg text-body-lg">
-        A curated collection of projects spanning computer vision, data
-        engineering, web development, and interactive 3D experiences.
+        A selection of projects that reflect my curiosity, creativity, and
+        commitment to building impactful digital solutions.
       </p>
     </header>
 

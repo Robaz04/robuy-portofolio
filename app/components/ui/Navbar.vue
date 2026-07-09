@@ -36,7 +36,7 @@
         </button>
       </div>
       <NuxtLink
-        to="/cv/cv_robuy.pdf"
+        to="/cv/CV_Robby.pdf"
         target="_blank"
         class="hidden md:block bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md hover:opacity-80 transition-opacity"
       >
@@ -93,7 +93,7 @@
     <!-- Resume button di mobile — tambahkan ini setelah div menu -->
     <div class="mt-auto pt-6 border-t border-outline-variant/20">
       <NuxtLink
-        to="/cv/cv_robuy.pdf"
+        to="/cv/CV_Robby.pdf"
         target="_blank"
         class="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-primary to-secondary text-on-primary px-6 py-3 rounded-full font-label-md text-label-md hover:opacity-80 transition-opacity"
         @click="isOpen = false"

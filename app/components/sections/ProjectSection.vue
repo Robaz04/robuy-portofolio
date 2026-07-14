@@ -198,7 +198,6 @@
         </div>
       </div>
       <!--Test-->
-      <!-- Ganti TransitionGroup dengan structure ini -->
       <div class="space-y-8" ref="gridRef">
         <div
           v-for="(row, rowIndex) in displayedRows"
@@ -400,30 +399,35 @@ const activeFeatured = ref(0);
 
 const featuredProjects = [
   {
+    title: "NusaGraph",
+    description:
+      "A semantic web search platform that enables integrated knowledge discovery through direct client-to-triple-store communication, leveraging ontology-based data modeling and SPARQL-powered semantic querying.",
+    icon: "person_search",
+    photos: "/images/projects/nusagraph/nusa1.webp",
+    links: [
+      {
+        label: "GitHub",
+        icon: "github",
+        url: "https://github.com/Kurtz17/NusaGraph",
+      },
+      {
+        label: "Live",
+        icon: "deploy",
+        url: "https://nusagraph.vercel.app",
+      },
+    ],
+  },
+  {
     title: "NatSense AR",
     description:
       "An augmented reality mobile application built with Unity and AR Foundation, simulating natural disaster scenarios such as flood, forest fire, and storm through interactive diorama scenes with real-time mode toggling, particle effects, and animated environments.",
-    icon: "view_in_ar=",
+    icon: "view_in_ar",
     photos: "/images/projects/natsense/nat1.webp",
     links: [
       {
         label: "Drive",
         icon: "drive",
         url: "https://drive.google.com/drive/folders/1L805bJFY12Gp8MxTbwu5Lq_ZiGCWpU0T?usp=sharing",
-      },
-    ],
-  },
-  {
-    title: "HOG + SVM Human Detection",
-    description:
-      "A real-time human detection system leveraging Histogram of Oriented Gradients (HOG) and Support Vector Machine (SVM) classifier with Hard Negative Mining for improved accuracy. Deployed as an interactive Streamlit web app with multi-scale detection pipeline.",
-    icon: "person_search",
-    photos: "/images/projects/hog/hog1.webp",
-    links: [
-      {
-        label: "GitHub",
-        icon: "github",
-        url: "https://github.com/Robaz04/human-detection-with-hog-svm",
       },
     ],
   },

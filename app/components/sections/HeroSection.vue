@@ -93,7 +93,7 @@
             class="w-full h-full rounded-2xl overflow-hidden inner-card-shadow transform-3d bg-[#161021]"
           >
             <NuxtImg
-              src="/images/profile/foto1.webp"
+              src="/images/profile/foto2.webp"
               alt="Foto Portofolio"
               class="w-full h-full object-cover rounded-2xl scale-100 group-hover:scale-105 transition-transform duration-500 ease-out"
             />

@@ -543,6 +543,33 @@ const projects = reactive([
     ],
   },
   {
+    title: "Pokedex - Pokemon Web App",
+    description:
+      "A responsive Pokémon data explorer built as a front-end technical assessment. Fetches live data from PokeAPI with server-side rendering, featuring search, type filtering, an interactive evolution chain, and bilingual (EN/ID) support.",
+    tech: ["Next.js", "TypeScript", "Material UI", "PokeAPI", "Vitest"],
+    icon: "logos:nextjs-icon",
+    year: "2026",
+    photos: [
+      "/images/projects/pokedex/pokedex1.webp",
+      "/images/projects/pokedex/pokedex2.webp",
+      "/images/projects/pokedex/pokedex3.webp",
+      "/images/projects/pokedex/pokedex4.webp",
+    ],
+    activePhoto: 0,
+    links: [
+      {
+        label: "GitHub",
+        icon: "github",
+        url: "https://github.com/Robaz04/pokedex",
+      },
+      {
+        label: "Live",
+        icon: "deploy",
+        url: "https://robby-pokedex.vercel.app/",
+      },
+    ],
+  },
+  {
     title: "DecisionHub",
     description:
       "A web-based Decision Support System (DSS) that enables users to perform interactive multi-criteria decision-making analyses using SAW, Weighted Product, TOPSIS, and AHP methodologies within a unified platform.",

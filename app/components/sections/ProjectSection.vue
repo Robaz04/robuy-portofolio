@@ -545,7 +545,7 @@ const projects = reactive([
   {
     title: "Pokedex - Pokemon Web App",
     description:
-      "A responsive Pokémon data explorer built as a front-end technical assessment. Fetches live data from PokeAPI with server-side rendering, featuring search, type filtering, an interactive evolution chain, and bilingual (EN/ID) support.",
+      "A responsive Pokémon data explorer that fetches live data from PokeAPI with server-side rendering, featuring search, type filtering, an interactive evolution chain, and bilingual (EN/ID) support.",
     tech: ["React", "Next.js", "TypeScript", "Material UI", "PokeAPI"],
     icon: "logos:nextjs-icon",
     year: "2026",

@@ -369,7 +369,7 @@
 
             <!-- Lapisan Dalam Tombol -->
             <NuxtLink
-              to="/cv/cv_robuy.pdf"
+              to="/cv/CV_Robby.pdf"
               target="_blank"
               class="relative w-full sm:w-auto block text-center bg-surface/90 hover:bg-transparent group-hover/resume:surface_glass backdrop-blur-md text-primary font-bold py-[15px] px-10 rounded-[11px] transition-all duration-300 cursor-pointer"
             >
